@@ -1,23 +1,32 @@
-<ion-header>
+<ion-header> <!-- para tirar linha: <ion-header class= "ion-no-border"> -->
   <ion-toolbar>
-    <ion-title>Verificação de email </ion-title>
+    <ion-title class="ion-text-center">
+      <span>PrevineBSB</span>
+      <img src="/assets/logosus.png">   
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="user$ | async as user">
+<ion-content color="primary" *ngIf="user$ | async as user">
   <ion-row>
     <ion-col>
       <h2>Obrigado por fazer o registro!</h2>
-      <p>Enviamos um email de confirmação para <strong>{{user.email}}</strong></p>
-      <p>Por favor verifique seu email e clique no link para verificar seu endereço de email.</p>
+      <p>Enviamos um E-mail de confirmação para <strong>{{user.email}}</strong></p>
+      <p>Por favor verifique seu E-mail e clique no link para verificar seu endereço de E-mail.</p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
-      <ion-button type="submit" color="primary" expand="block" (click)="onSendEmail()"
-        >Reenvie o email de verificação</ion-button
-      >
+      <ion-button type="submit" color="light" expand="block" (click)="onSendEmail()"
+        >Reenviar E-mail de verificação</ion-button>
     </ion-col>
   </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="light" (click)="onLogin(email, password)" expand="block">Continuar cadastro</ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

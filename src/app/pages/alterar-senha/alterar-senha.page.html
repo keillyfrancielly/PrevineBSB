@@ -4,7 +4,6 @@
       <span>PrevineBSB</span>
       <img src="/assets/logosus.png">   
     </ion-title>
-
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -14,16 +13,15 @@
 <ion-content color="primary">
 <h1>Alterar Senha</h1>
 <form>
-  
   <ion-item color="primary">
-    <ion-label position="stacked">E-Mail</ion-label>
-    <ion-input type="email" #email required></ion-input>
-  </ion-item>
-  
-  <ion-item color="primary">
-    <ion-label position="stacked">CPF</ion-label>
-    <ion-input type="number" #cpf required></ion-input>
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-input type="text" #email required></ion-input>
   </ion-item>
 
+  <ion-row>
+    <ion-col>
+      <ion-button color = "light" type="submit" (click)="onResetPassword(email)" expand="block">Enviar E-mail</ion-button>
+    </ion-col>
+  </ion-row>
 </form>
 </ion-content>
