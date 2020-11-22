@@ -11,119 +11,71 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
-<h1>Cadastro Paciente</h1>
-
-<form>
-  <ion-item color="primary">
-    <ion-label position="floating">CPF</ion-label>
-    <ion-input type="number" #cpf required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Nome Completo</ion-label>
-    <ion-input type="name" #name required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Cartão SUS</ion-label>
-    <ion-input type="number" #cartao required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label>Gênero</ion-label>
-    <ion-radio-group>
-      <ion-item color="primary">
-        <ion-label>Masculino</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-      <ion-item color="primary">
-        <ion-label>Feminino</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-    </ion-radio-group>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label>Cor</ion-label>
-    <ion-radio-group>
-      <ion-item color="primary">
-        <ion-label>Branco</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-      <ion-item color="primary">
-        <ion-label>Pardo</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-      <ion-item color="primary">
-        <ion-label>Negro</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-      <ion-item color="primary">
-        <ion-label>Amarelo</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-      <ion-item color="primary">
-        <ion-label>Indígena</ion-label>
-        <ion-radio color="light" checked></ion-radio>
-      </ion-item>
-    </ion-radio-group>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">E-Mail</ion-label>
-    <ion-input type="email" #email required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">CEP</ion-label>
-    <ion-input type="postal-code" #cep required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Endereço</ion-label>
-    <ion-input type="address-line1" #endereco required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Complemento</ion-label>
-    <ion-input type="address-line2" #complemento required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Bairro</ion-label>
-    <ion-input type="text" #bairro required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Cidade</ion-label>
-    <ion-input type="text" #cidade required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Estado(UF)</ion-label>
-    <ion-input type="text" #uf required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Celular</ion-label>
-    <ion-input type="tel" #celular required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Telefone</ion-label>
-    <ion-input type="tel" #telefone required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Quantidade Dependentes</ion-label>
-    <ion-input type="number" #telefone required></ion-input>
-  </ion-item>
-
-  <ion-item color="primary">
-    <ion-label position="floating">Senha</ion-label>
-    <ion-input type="password" #senha required></ion-input>
-  </ion-item>
-
-</form>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nome Completo</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.name" placeholder="Ex: Maria da Silva Sousa" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="number" [(ngModel)]="cadpaciente.cpf" placeholder="Ex: 000.000.00-00" maxlength="11"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cartão SUS</ion-label>
+      <ion-input type="number" [(ngModel)]="cadpaciente.cartao" placeholder="Ex: 01235" maxlength="5" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Gênero</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.genero" placeholder="Ex: Feminino" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cor</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.cor" placeholder="Ex: Branca" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]="cadpaciente.email" placeholder="Ex: maria.sousa@gmail.com" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CEP</ion-label>
+      <ion-input type="number" [(ngModel)]="cadpaciente.cep" placeholder="Ex: 70000-000" maxlength="8" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.endereco" placeholder="Ex: Qd 0 Cj A Cs 0" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Complemento</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.complemento" placeholder="Ex: Condomínio" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Bairro</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.bairro" placeholder="Ex: Sobradinho" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.cidade" placeholder="Ex: Brasília" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">UF</ion-label>
+      <ion-input type="text" [(ngModel)]="cadpaciente.uf" placeholder="Ex: DF" maxlength="2" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input type="number" [(ngModel)]="cadpaciente.celular" placeholder="Ex: (61) 9 9999-9999" maxlength="11" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="number" [(ngModel)]="cadpaciente.telefone" placeholder="(61) 3333-3333" maxlength="10"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="saveCadpaciente()" expand="block">
+      Salvar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

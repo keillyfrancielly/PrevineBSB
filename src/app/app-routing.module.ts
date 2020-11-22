@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro-paciente/cadastro-paciente.module').then( m => m.CadastroPacientePageModule)
   },
   {
+    path: 'cadastro-paciente/:id',
+    loadChildren: () => import('./pages/cadastro-paciente/cadastro-paciente.module').then( m => m.CadastroPacientePageModule)
+  },
+  {
     path: 'nova-senha',
     loadChildren: () => import('./pages/nova-senha/nova-senha.module').then( m => m.NovaSenhaPageModule)
   },
@@ -47,11 +51,6 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
-  {
-    path: 'alterar-senha',
-    loadChildren: () => import('./pages/alterar-senha/alterar-senha.module').then( m => m.AlterarSenhaPageModule)
-  },
-
 
 ];
 

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/user.interface';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -71,6 +71,10 @@ export class AuthService {
 
   isEmailVerified(user: User): boolean {
     return user.emailVerified === true ? true : false;
+  }
+
+  getAuth() {
+    return firebase.auth();
   }
 
   async logout(): Promise<void> {
