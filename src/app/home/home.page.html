@@ -11,34 +11,68 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content color="primary">
-  <h1>Dados do Paciente</h1>
-  <form>
-    
-    <ion-item color="primary">
-      <ion-label position="stacked">Nome</ion-label>
-      <ion-input type="text" #name required></ion-input>
-    </ion-item>
-
-    <ion-item color="primary">
-      <ion-label position="stacked">CPF</ion-label>
-      <ion-input type="number" #cpf required></ion-input>
-    </ion-item>
-
-    <ion-item color="primary">
-      <ion-label position="stacked">Nascimento</ion-label>
-      <ion-input type="date" #nascimento required></ion-input>
-    </ion-item>
-
-    <ion-item color="primary">
-      <ion-label position="stacked">SUS</ion-label>
-      <ion-input type="number" #sus required></ion-input>
-    </ion-item>
-
-    <ion-item color="primary">
-      <ion-label position="stacked">Disponibilidade</ion-label>
-      <ion-input type="text" #disponibilidade required></ion-input>
-    </ion-item>
-
-  </form>
-</ion-content>
+  <ion-content color="primary">
+    <ion-list *ngIf="!cadpacientes.length">
+      <ion-item *ngFor="let item of [0, 1]">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-item-sliding *ngFor="let cadpaciente of cadpacientes">
+        <ion-item button [routerLink]="['/cadastro-paciente', cadpaciente.id]">
+  
+          <ion-label>
+            {{ cadpaciente.name }}
+            <p>{{ cadpaciente.cpf }}</p>
+            <p>{{ cadpaciente.cartao }}</p>            
+            <p>{{ cadpaciente.email }}</p>            
+            <p>{{ cadpaciente.endereco }}</p>            
+            <p>{{ cadpaciente.celular }}</p>            
+            <p>{{ cadpaciente.datareg | date: 'short' }}</p>
+          </ion-label>
+  
+          <!-- <ion-note color="primary" slot="end" *ngIf="cadpacientes.price">{{ cadpaciente.price | currency: 'BRL' }}</ion-note> -->
+        </ion-item>
+  
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="deleteCadpaciente(cadpaciente.id)">
+            Finalizar
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button (click)="logout()" color="danger" expand="block">
+              Sair
+            </ion-button>
+          </ion-col>
+  
+          <ion-col size="6">
+            <ion-button routerLink="/cadastro-paciente" expand="block">
+              Novo
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
